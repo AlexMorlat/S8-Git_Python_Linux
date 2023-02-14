@@ -1,15 +1,40 @@
 ## TD2 : Work with text manipulation tools inLinux
 
-#### Exercise 1: Grep and awk on tabular data
-1. Display the list of files and folders at the root using ls -l
+#### Memo Utilisation de grep :
 
+grep "" fichier
+
+"^#" : ligne commencant par #
+
+"#"  : ligne composé de # 
+
+"#$" : comporte seulment un #
+
+grep -i : Pas de sensibilité aux majustcules
+
+grep -v : Les lignes qui ne comporte pas ...
+
+grep -c : compte les lignes
+
+grep -n : numéro de la ligne
+
+grep -w : que les mots complets
+
+grep "" * : Pour tout les fichiers 
+
+
+### Exercise 1: Grep and awk on tabular data
+1. Display the list of files and folders at the root using ls -l
 ```
+ls -l
 ```
 2. In a pipeline (using |), append a grep instruction to only display informations of bin
 ```
+ls -l / | grep bin
 ```
 3. Append an awk instruction to only display the size of bin
 ```
+
 ```
 4. Now rather extract the month, day and year of creation of the folder bin
 ```

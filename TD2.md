@@ -115,4 +115,6 @@ This is based on the text above that seems to be more stable.
 — Extract the tab title
 — Make a list of cyber attacks based on section titles
 ```
+cat cyberattacks.txt | grep -o "<title>.*</title>" | sed 's/<title>//; s/<\/title>//'
+cat cyberattacks.txt | grep "^<h2>" | sed 's/<h2>//; s/<\/h2>//'
 ```

@@ -83,4 +83,4 @@ This is based on the text above that seems to be more stable.
 ```
 cat cyberattacks.txt | grep -o "<title>.*</title>" | sed 's/<title>//; s/<\/title>//'
 cat cyberattacks.txt | grep "^<h2>" | sed 's/<h2>//; s/<\/h2>//'
-```
+``` 

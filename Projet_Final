@@ -1,0 +1,21 @@
+Recherche d'un site adéquat pour le prix du bitcoin : Par exemple "CoinHouse"
+https://www.coinhouse.com/fr/cours-bitcoin/
+
+Création du script
+```
+vim ScalpBTC.sh
+```
+Remplissage du script : 
+1) Récupération de la date/heure 
+2) Récupération du prix.
+3) Ecriture des informations dans le fichier text "PrixBTC.txt"
+```
+echo $(date) >> PrixBitcoin.txt
+echo $(curl https://www.coinhouse.com/fr/cours-bitcoin/ | html2text | sed -n '/Bitcoin_(BTC)/,$p'| sed -n '/Le cours  Bitcoin euro a connu des soubresauts/q;p' | sed -n '3p' | grep -oE '[0-9]+([,.][0-9]+)*([,.][0-9]+)?') >> PrixBitcoin.txt
+```
+Pour exécuter le scritp de manière automatique à interval de temps donné on enregistre dans crontab:
+Par exemple toutes les 5 minutes
+```
+crontab -e
+0,5 * * * * /home/alexandre/ScalpBTC.sh
+```

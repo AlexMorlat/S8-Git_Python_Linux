@@ -1,0 +1,1 @@
+echo $(date -u)";"$(curl https://www.coingecko.com/en/coins/bitcoin | html2text | sed -n '/Bitcoin Price (BTC)/,$p' | sed -n '/Share on Facebook/q;p' | sed -n '3p' | grep -oP '\$\d{1,3}(,\d{3})*\.\d{2}') >> /home/alexandre/PrixBTC.csv

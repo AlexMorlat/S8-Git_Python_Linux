@@ -5,8 +5,12 @@ Created on Sun Feb 26 15:02:03 2023
 @author: alexm
 """
 import dash                                # pip install dash
-import dash_core_components as dcc
-import dash_html_components as html
+#import dash_core_components as dcc
+from dash import dcc
+
+#import dash_html_components as html
+from dash import html
+
 import dash_bootstrap_components as dbc    # pip install dash-bootstrap-components
 import plotly.express as px
 import plotly.graph_objs as go
@@ -15,8 +19,8 @@ from dash.dependencies import Input, Output
 import datetime
 import base64
 
-path = r"\\wsl.localhost\Ubuntu\home\alexandre\PrixBTC.csv"
-df = pd.read_csv(path,sep=';')
+path = r"/home/ec2-user/S8-Git_Python_Linux/Projet/PrixBTC.csv"
+df = pd.read_csv(path,sep=';',names=["Date","Prix"])
     
 def transform_date(date_string):                       
     #On ajoute une heure pour se ramener à l'heure francaise.
@@ -40,8 +44,8 @@ data = df
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-image_filename = 'C:/Users/alexm/Desktop/S8_Python/Asset/bitcoin-logo-font.jpg' # chemin vers votre image
-encoded_image = base64.b64encode(open(image_filename, 'rb').read()).decode('ascii')
+#image_filename = 'C:/Users/alexm/Desktop/S8_Python/Asset/bitcoin-logo-font.jpg' # chemin vers votre image
+#encoded_image = base64.b64encode(open(image_filename, 'rb').read()).decode('ascii')
 
 #app.layout = html.Div([
 #    html.H1('Dashboard Prix du Bitcoin'),
@@ -54,7 +58,7 @@ app.layout = dbc.Container([
             dbc.Card([
                 #html.Img(src='data:image/png;base64,{}'.format(encoded_image),style={"width": "6rem"}),
                 dbc.CardBody([
-                        html.Img(src='data:image/png;base64,{}'.format(encoded_image),style={'textAlign': 'center','height':'100%',"width": "100%"}),
+                        #html.Img(src='data:image/png;base64,{}'.format(encoded_image),style={'textAlign': 'center','height':'100%',"width": "100%"}),
                         html.P("")
                         ,
                     
